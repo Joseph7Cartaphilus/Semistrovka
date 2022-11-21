@@ -18,9 +18,5 @@ class Pin(BaseModel):
     def __str__(self):
         return f'Pin {self.id} - {self.title}'
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super(Pin, self).save(*args, **kwargs)
-
     def get_url(self):
         return reverse('pin_detail', args=[self.id])
