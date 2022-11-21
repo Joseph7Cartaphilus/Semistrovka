@@ -17,3 +17,7 @@ def gallery(request, category_id=None):
     else:
         context.update({'pins': Pin.objects.all()})
     return render(request, 'gallery.html', context)
+
+
+def images(request):
+    return render(request, 'images.html')
