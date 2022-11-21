@@ -78,16 +78,16 @@
                                 <li class="active"><a href="{% url 'index' %}">Home</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
-                                        <li><a href="">- Home</a></li>
+                                        <li><a href="{% url 'index' %}">- Home</a></li>
                                         <li><a href="">- About</a></li>
-                                        <li><a href="">- Gallery</a></li>
+                                        <li><a href="{% url 'gallery' %}">- Gallery</a></li>
                                         <li><a href="">- Blog</a></li>
                                         <li><a href="">- Blog Details</a></li>
                                         <li><a href="">- Contact</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="">About</a></li>
-                                <li><a href="">Gallery</a></li>
+                                <li><a href="{% url 'gallery' %}">Gallery</a></li>
                                 <li><a href="">Blog</a></li>
                                 <li><a href="">Contact</a></li>
                             </ul>
@@ -312,7 +312,7 @@
         <div class="single-instagram-item">
             <img src="{% static 'img/bg-img/11.jpg' %}" alt="">
             <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                <a href="#">
+                <a href="{% static 'img/bg-img/11.jpg' %}">
                     <i class="ti-instagram" aria-hidden="true"></i>
                     <span>Alime_photographer</span>
                 </a>
@@ -322,7 +322,7 @@
         <div class="single-instagram-item">
             <img src="{% static 'img/bg-img/12.jpg' %}" alt="">
             <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                <a href="#">
+                <a href="{% static 'img/bg-img/12.jpg' %}">
                     <i class="ti-instagram" aria-hidden="true"></i>
                     <span>Alime_photographer</span>
                 </a>
@@ -330,9 +330,9 @@
         </div>
         <!-- Single Instagram Item -->
         <div class="single-instagram-item">
-            <img src="../../static/img/bg-img/13.jpg" alt="">
+            <img src="{% static 'img/bg-img/13.jpg' %}" alt="">
             <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                <a href="#">
+                <a href="{% static 'img/bg-img/13.jpg' %}">
                     <i class="ti-instagram" aria-hidden="true"></i>
                     <span>Alime_photographer</span>
                 </a>
@@ -340,9 +340,9 @@
         </div>
         <!-- Single Instagram Item -->
         <div class="single-instagram-item">
-            <img src="../../static/img/bg-img/14.jpg" alt="">
+            <img src="{% static 'img/bg-img/14.jpg' %}" alt="">
             <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                <a href="#">
+                <a href="{% static 'img/bg-img/14.jpg' %}">
                     <i class="ti-instagram" aria-hidden="true"></i>
                     <span>Alime_photographer</span>
                 </a>
@@ -350,9 +350,9 @@
         </div>
         <!-- Single Instagram Item -->
         <div class="single-instagram-item">
-            <img src="../../static/img/bg-img/15.jpg" alt="">
+            <img src="{% static 'img/bg-img/15.jpg' %}" alt="">
             <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                <a href="#">
+                <a href="{% static 'img/bg-img/15.jpg' %}">
                     <i class="ti-instagram" aria-hidden="true"></i>
                     <span>Alime_photographer</span>
                 </a>
@@ -360,9 +360,9 @@
         </div>
         <!-- Single Instagram Item -->
         <div class="single-instagram-item">
-            <img src="../../static/img/bg-img/16.jpg" alt="">
+            <img src="{% static 'img/bg-img/16.jpg' %}" alt="">
             <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                <a href="#">
+                <a href="{% static 'img/bg-img/16.jpg' %}">
                     <i class="ti-instagram" aria-hidden="true"></i>
                     <span>Alime_photographer</span>
                 </a>
