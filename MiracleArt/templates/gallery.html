@@ -107,7 +107,7 @@
 
 <!-- Breadcrumb Area Start -->
 <section class="breadcrumb-area bg-img bg-overlay jarallax"
-         style="background-image: url(../../static/img/bg-img/38.jpg);">
+         style="background-image: url({% static 'img/bg-img/38.jpg' %});">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12">
@@ -135,11 +135,9 @@
                 <!-- Projects Menu -->
                 <div class="alime-projects-menu wow fadeInUp" data-wow-delay="100ms">
                     <div class="portfolio-menu text-center">
-                        <button class="btn active" data-filter="*">All</button>
-                        <button class="btn" data-filter=".human">Human</button>
-                        <button class="btn" data-filter=".nature">Nature</button>
-                        <button class="btn" data-filter=".country">Country</button>
-                        <button class="btn" data-filter=".video">Video</button>
+                        {% for category in categories %}
+                            <button class="btn active"><a href="{% url 'category' category.id %}">{{ category.name }}</a></button>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -157,6 +155,7 @@
                 </div>
             </div>
             {% endfor %}
+        </div>
     </div>
 </div>
 <!-- Gallery Area End -->
