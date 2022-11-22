@@ -1,0 +1,28 @@
+[
+  {
+    "model": "MiracleArt.pin",
+    "pk": 1,
+    "fields": {
+      "created_at": "2022-11-21T14:49:25.286Z",
+      "updated_at": "2022-11-21T14:50:32.890Z",
+      "title": "dragon",
+      "text": "look nice",
+      "img": "images/IMG_4816_cSfMPXa.JPG",
+      "slug": "dragon",
+      "category": 1
+    }
+  },
+  {
+    "model": "MiracleArt.pin",
+    "pk": 2,
+    "fields": {
+      "created_at": "2022-11-21T15:02:25.493Z",
+      "updated_at": "2022-11-21T15:02:34.630Z",
+      "title": "demon dark",
+      "text": "cool demon",
+      "img": "images/IMG_3686.JPG",
+      "slug": "demon-dark",
+      "category": 2
+    }
+  }
+]

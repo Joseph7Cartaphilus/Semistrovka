@@ -1,0 +1,18 @@
+[
+  {
+    "model": "MiracleArt.pincategory",
+    "pk": 1,
+    "fields": {
+      "name": "Dragons",
+      "description": "This category special for dragons and who can fly too"
+    }
+  },
+  {
+    "model": "MiracleArt.pincategory",
+    "pk": 2,
+    "fields": {
+      "name": "DarkDemons",
+      "description": "Demons art so awful"
+    }
+  }
+]
