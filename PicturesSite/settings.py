@@ -122,6 +122,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'MiracleArt/static'),
+    os.path.join(BASE_DIR, 'users/static'),
 )
 
 # Default primary key field type
