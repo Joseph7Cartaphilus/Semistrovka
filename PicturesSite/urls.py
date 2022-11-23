@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include('debug_toolbar.urls')),
     path('MiracleArt/', include('MiracleArt.urls')),
+    path('Users/', include('users.urls')),
 ]
 
 if settings.DEBUG:
