@@ -5,11 +5,11 @@ from django.contrib.auth.decorators import login_required
 
 
 def login(request):
-    return render(request, 'users/login.html')
+    return render(request, 'login.html')
 
 
 def register(request):
-    return render(request, 'users/register.html')
+    return render(request, 'register.html')
 
 
 def logout(request):
