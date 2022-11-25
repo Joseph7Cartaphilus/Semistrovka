@@ -88,13 +88,19 @@
                                 </li>
                                 <li><a href="{% url 'gallery' %}">Gallery</a></li>
                                 <li><a href="{% url 'images' %}">Images</a></li>
-                                <li><a href="{% url 'login' %}">Login</a></li>
-                                <li><a href="{% url 'register' %}">Register</a></li>
+                                {% if user.is_authenticated %}
+                                    <li><a href="{% url 'images' %}">Profile</a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                {% else %}
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="{% url 'register' %}">Register</a></li>
+                                {% endif %}
                             </ul>
-
-                            <!-- Search Icon -->
-                            <div class="search-icon" data-toggle="modal" data-target="#searchModal"><i
-                                    class="ti-search"></i></div>
+                            {% if user.is_authenticated %}
+                            <div>You have entered as {{ user.username }}</div>
+                            {% else %}
+                                <div></div>
+                            {% endif %}
                         </div>
                         <!-- Nav End -->
                     </div>
