@@ -26,29 +26,6 @@
 </div>
 <!-- /Preloader -->
 
-
-<!-- Top Search Form Area -->
-<div class="top-search-area">
-    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <!-- Close -->
-                    <button type="button" class="btn close-btn" data-dismiss="modal"><i class="ti-close"></i></button>
-                    <!-- Form -->
-                    <form action="index.html" method="post">
-                        <label>
-                            <input type="search" name="top-search-bar" class="form-control"
-                                   placeholder="Search and hit enter...">
-                        </label>
-                        <button type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Header Area Start -->
 <header class="header-area">
     <!-- Main Header Start -->
@@ -98,7 +75,13 @@
                                 {% endif %}
                             </ul>
                             {% if user.is_authenticated %}
-                            <div>You have entered as {{ user.username }}</div>
+                                <div class="classynav">
+                                    <ul id="nav">
+                                        <li class="active">
+                                            <a href="">You have entered as {{ user.username }}</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             {% else %}
                                 <div></div>
                             {% endif %}
