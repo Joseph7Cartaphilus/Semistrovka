@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 
-from .forms import UserLoginForm, UserRegistrationForm
+from .forms import UserLoginForm, UserRegistrationForm, UserProfileForm
 
 
 def login(request):
@@ -42,5 +42,15 @@ def logout(request):
     return HttpResponseRedirect(reverse('index'))
 
 
+@login_required
 def profile(request):
-    return render(request, 'profile.html')
+    if request.method == 'POST':
+        form = UserProfileForm(data=request.POST, files=request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('profile'))
+    else:
+        form = UserProfileForm(instance=request.user)
+    return render(request, 'profile.html', {
+        'form': form
+    })
