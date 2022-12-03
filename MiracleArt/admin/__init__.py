@@ -9,4 +9,4 @@ admin.site.register(PinCategory, PinCategoryAdmin)
 
 
 admin.site.site_header = 'Административная панель'
-admin.site.index_title = 'MiracleArt'
+admin.site.index_title = 'Miracle Art'
