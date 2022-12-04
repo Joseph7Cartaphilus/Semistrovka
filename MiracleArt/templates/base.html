@@ -57,7 +57,7 @@
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
                                         <li><a href="{% url 'index' %}">- Home</a></li>
-                                        <li><a href="">- About</a></li>
+                                        <li><a href="{% url 'workshop' %}">- Workshop</a></li>
                                         <li><a href="{% url 'gallery' %}">- Gallery</a></li>
                                         {% if user.is_authenticated %}
                                         <li><a href="{% url 'profile' %}">- Profile</a></li>
