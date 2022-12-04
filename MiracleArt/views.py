@@ -19,5 +19,5 @@ def gallery(request, category_id=None):
     return render(request, 'gallery.html', context)
 
 
-def images(request):
-    return render(request, 'images.html')
+def workshop(request):
+    return render(request, 'workshop.html')
