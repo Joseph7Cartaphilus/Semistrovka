@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Pin, PinCategory
 
@@ -20,4 +20,16 @@ def gallery(request, category_id=None):
 
 
 def workshop(request):
-    return render(request, 'workshop.html')
+    pins = Pin.objects.all()
+    return render(request, 'workshop.html', {
+        'pins': pins
+    })
+
+
+def show_one_pin_by_slug_id(request, slug_pin: str, id: int):
+    pin = get_object_or_404(Pin, slug=slug_pin, id=id)
+    return render(request, 'one_pin.html', {
+        'pin': pin,
+        'id': pin.id,
+        'slug': pin.slug
+    })
