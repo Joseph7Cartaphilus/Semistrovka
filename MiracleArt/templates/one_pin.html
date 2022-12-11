@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area bg-img bg-overlay jarallax"
+             style="background-image: url({% static 'img/bg-img/38.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Workshop</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="{% url 'index' %}"><i class="icon_house_alt"></i>
+                                    Home</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ pin.title|title }}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+    <!-- Images Area Start -->
+    <div class="contact-area section-padding-80-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-18">
+                    <h2 class="contact-title mb-30" style="margin-left: 460px">{{ pin.title|upper }}</h2>
+                </div>
+                <form action="#" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-lg-12 text-center">
+                            <img width="200" height="200"
+                                 src="/media/{{ pin.img }}"
+                                 class="img-thumbnail" alt="media_files"
+                                 style="width: 750px; height: 750px; margin-left: 200px;">
+                        </div>
+                    </div>
+                    <div class="col-14">
+                        <h2 class="contact-title mb-30">
+                            <b class="text-lg-center" style="margin-left: 270px; margin-top: 33px">The Author
+                                is {{ pin.user.username }}</b>
+                        </h2>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-12" style="margin-top: 0; margin-left: 95px">
+                            <button class="btn btn-info btn-block" type="submit" value="viewing">
+                                <a
+                                        href="/media/{{ pin.img }}" class="portfolio-img">Viewing the pin
+                                </a>
+                            </button>
+                        </div>
+                        <br style="margin-top: 30px">
+                        <div class="col-lg-12" style="margin-top: 0; margin-left: 95px">
+                            <button class="btn btn-info btn-block" type="submit" value="Return to workshop">
+                                <a
+                                        href="{% url 'workshop' %}">Return to workshop
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Images Area End -->
+{% endblock %}
