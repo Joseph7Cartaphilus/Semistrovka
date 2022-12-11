@@ -2,59 +2,75 @@
 {% load static %}
 
 {% block content %}
-<!-- Breadcrumb Area Start -->
-<section class="breadcrumb-area bg-img bg-overlay jarallax"
-         style="background-image: url({% static 'img/bg-img/38.jpg' %});">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-12">
-                <div class="breadcrumb-content text-center">
-                    <h2 class="page-title">Gallery</h2>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="{% url 'index' %}"><i class="icon_house_alt"></i> Home</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">Gallery</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Breadcrumb Area End -->
-
-<!-- Gallery Area Start -->
-<div class="alime-portfolio-area section-padding-80 clearfix">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <!-- Projects Menu -->
-                <div class="alime-projects-menu wow fadeInUp" data-wow-delay="100ms">
-                    <div class="portfolio-menu text-center">
-                        <button class="btn active"><a href="{% url 'gallery' %}">All</a></button>
-                        {% for category in categories %}
-                            <button class="btn active"><a href="{% url 'category' category.id %}">{{ category.name }}</a></button>
-                        {% endfor %}
+    <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area bg-img bg-overlay jarallax"
+             style="background-image: url({% static 'img/bg-img/38.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Gallery</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="{% url 'index' %}"><i class="icon_house_alt"></i>
+                                    Home</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+    <!-- Breadcrumb Area End -->
 
-        <div class="row alime-portfolio">
-            {% for pin in pins %}
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="/media/{{ pin.img }}" alt="media_files">
-                    <div class="hover-content">
-                        <a href="/media/{{ pin.img }}" class="portfolio-img">+</a>
+    <!-- Gallery Area Start -->
+    <div class="alime-portfolio-area section-padding-80 clearfix">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Projects Menu -->
+                    <div class="alime-projects-menu wow fadeInUp" data-wow-delay="100ms">
+                        <div class="portfolio-menu text-center">
+                            <button class="btn active"><a href="{% url 'gallery' %}">All</a></button>
+                            {% for category in categories %}
+                                <button class="btn active"><a
+                                        href="{% url 'category' category.id %}">{{ category.name }}</a></button>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
+
+            <div class="row alime-portfolio">
+                {% for pin in pins %}
+                    <!-- Single Gallery Item -->
+                    <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp"
+                         data-wow-delay="100ms">
+                        <div class="single-portfolio-content">
+                            <img src="/media/{{ pin.img }}" alt="media_files">
+                            <div class="hover-content">
+                                <a href="/media/{{ pin.img }}" class="portfolio-img">+</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% if user.is_authenticated %}
+                <div class="row">
+                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="700ms">
+                        <a href="{% url 'workshop' %}" class="btn alime-btn btn-2 mt-15">Add you Pin now</a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="700ms">
+                        <a href="{% url 'register' %}" class="btn alime-btn btn-2 mt-15">Register to add you pin</a>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
-</div>
-<!-- Gallery Area End -->
+    <!-- Gallery Area End -->
 {% endblock %}
