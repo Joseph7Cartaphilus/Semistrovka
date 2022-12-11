@@ -22,6 +22,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('workshop/', views.workshop, name='workshop'),
     path('workshop/<slug:slug_pin>/<int:id>/', views.show_one_pin_by_slug_id, name='pin_detail_slug_id'),
+    path('workshop/<slug:slug_pin>/', views.delete_pin, name='delete_pin'),
     path('gallery/', views.gallery, name='gallery'),
     path('<int:category_id>/gallery/', views.gallery, name='category'),
 ]

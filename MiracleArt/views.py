@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Pin, PinCategory
 
@@ -33,3 +33,8 @@ def show_one_pin_by_slug_id(request, slug_pin: str, id: int):
         'id': pin.id,
         'slug': pin.slug
     })
+
+
+def delete_pin(request, slug_pin: str):
+    Pin.objects.get(slug=slug_pin).delete()
+    return redirect('workshop')
