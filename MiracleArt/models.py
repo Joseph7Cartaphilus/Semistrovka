@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.text import slugify
 
 from users.models import User
 
@@ -41,7 +42,7 @@ class Pin(BaseModel):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        super(Post, self).save(*args, **kwargs)
+        super(Pin, self).save(*args, **kwargs)
 
     def get_url(self):
         return reverse('pin_detail_slug_id', args=[self.slug, self.id])
