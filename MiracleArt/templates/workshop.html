@@ -26,8 +26,34 @@
     <!-- Breadcrumb Area End -->
 
     <!-- Gallery Area Start -->
-    <div class="alime-portfolio-area section-padding-80 clearfix">
-
+    <div class="alime-portfolio-area section-padding-80 clearfix" style="background-color:floralwhite">
+        <h1 style="margin-left: 800px; margin-top: -60px; color: darkred">List of pins</h1>
+        <div style="display: flex; flex-wrap: wrap; flex-direction: row; align-content: baseline">
+            <div id="my_wrapper">
+                <nav>
+                    <ul class="top-menu">
+                        {% for pin in pins %}
+                            <li class="active">
+                                <a href="{{ pin.get_url }}">{{ pin.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+            <div style="margin-top: 40px" class="row">
+                <div class="col-12 text-center wow fadeInUp" data-wow-delay="700ms">
+                    <a href="{% url 'add_pin' %}" class="btn alime-btn btn-2 mt-15">Create it now</a>
+                </div>
+            </div>
+        {% else %}
+            <div class="row">
+                <div class="col-12 text-center wow fadeInUp" data-wow-delay="700ms">
+                    <a href="{% url 'register' %}" class="btn alime-btn btn-2 mt-15">Register to add you pin</a>
+                </div>
+            </div>
+        {% endif %}
     </div>
     <!-- Gallery Area End -->
 {% endblock %}
