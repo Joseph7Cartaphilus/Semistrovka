@@ -21,6 +21,8 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('workshop/', views.workshop, name='workshop'),
+    path('workshop/add/', views.create_or_edit_pin, name='add_pin'),
+    path('workshop/<slug:slug_pin>/edit/', views.create_or_edit_pin, name='edit_pin'),
     path('workshop/<slug:slug_pin>/<int:id>/', views.show_one_pin_by_slug_id, name='pin_detail_slug_id'),
     path('workshop/<slug:slug_pin>/', views.delete_pin, name='delete_pin'),
     path('gallery/', views.gallery, name='gallery'),

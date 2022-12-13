@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Pin, PinCategory
+from .forms import EditForm
 
 
 def index(request):
@@ -38,3 +39,22 @@ def show_one_pin_by_slug_id(request, slug_pin: str, id: int):
 def delete_pin(request, slug_pin: str):
     Pin.objects.get(slug=slug_pin).delete()
     return redirect('workshop')
+
+
+def create_or_edit_pin(request, slug_pin=None):
+    form = EditForm()
+
+    if slug_pin is not None:
+        pin = get_object_or_404(Pin, slug=slug_pin)
+        form = EditForm(instance=pin)
+
+    if request.method == 'POST':
+        form = EditForm(request.POST, initial={'user': request.user})
+        if form.is_valid():
+            pin = form.save()
+            return redirect('edit_pin', pin.slug)
+
+    return render(request, 'add_edit_pin.html', {
+        'form': form,
+        'slug': slug_pin,
+    })
