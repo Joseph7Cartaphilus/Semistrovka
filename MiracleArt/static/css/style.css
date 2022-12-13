@@ -1157,3 +1157,40 @@ text-shadow: none;
 	}
 
 	
+.my_nav {
+	background: #f3f3f3;
+	border: 1px solid #e7e7e7;
+}
+
+.my_nav a {
+	text-decoration: none;
+}
+
+.my_nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+.my_nav li {
+	list-style-position: inside;
+	font: 14px 'Oswald', sans-serif;
+	padding: 5px;
+}
+#my_wrapper {
+	max-width: 960px;
+	margin: auto;
+}
+.top-menu li {
+	display: inline-block;
+	padding: 10px 45.9px;
+	margin-top: 10px;
+}
+
+.top-menu li.active {
+	background: #721c24;
+	color: #fff;
+}
+
+.top-menu a {
+	color: #FFFFFF;
+}
