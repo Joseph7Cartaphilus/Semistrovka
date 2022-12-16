@@ -41,20 +41,22 @@ def delete_pin(request, slug_pin: str):
     return redirect('workshop')
 
 
-def create_or_edit_pin(request, slug_pin=None):
+def create_or_edit_pin(request, id_pin=None, slug_pin=None):
     form = EditForm()
 
-    if slug_pin is not None:
-        pin = get_object_or_404(Pin, slug=slug_pin)
+    pin = None
+    if id_pin is not None:
+        pin = get_object_or_404(Pin, id=id_pin, slug=slug_pin, user=request.user)
         form = EditForm(instance=pin)
 
     if request.method == 'POST':
-        form = EditForm(request.POST, initial={'user': request.user})
+        form = EditForm(request.POST, instance=pin, files=request.FILES, initial={'user': request.user})
         if form.is_valid():
             pin = form.save()
-            return redirect('edit_pin', pin.slug)
+            return redirect('edit_pin', pin.slug, pin.id)
 
     return render(request, 'add_edit_pin.html', {
         'form': form,
+        'id': id_pin,
         'slug': slug_pin,
     })
