@@ -26,9 +26,35 @@
     <!-- Breadcrumb Area End -->
 
     <!-- Gallery Area Start -->
-    <div class="alime-portfolio-area section-padding-80 clearfix">
-        <h2>ТУТ вы создаите свой пин</h2>
+    <div class="alime-portfolio-area section-padding-80 clearfix" style="background-color:floralwhite">
+        {% if slug_pin %}
+            <h1 style="margin-left: 800px; margin-top: -60px; color: darkred">Edit your pin</h1>
+        {% else %}
+            <h1 style="margin-left: 800px; margin-top: -60px; color: darkred">Create your pin</h1>
+        {% endif %}
 
+        {% if form.errors %}
+            <b>Errors occurred when filling in the form fields</b>
+            {{ form.errors }}
+        {% endif %}
+
+        <form style="margin-left: 830px; margin-top: 33px" action="{% url 'add_pin' %}" method="post"
+              enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="col-lg-12" style="margin-top: 33px; margin-left: 20px; width: 200px">
+            <button class="btn btn-info btn-block" type="submit" value="Submit">
+                Submit
+            </button>
+        </div>
+        </form>
+        <div class="col-lg-12" style="margin-top: 33px; margin-left: 850px; width: 200px">
+            <button class="btn btn-info btn-block" type="submit" value="Return to workshop">
+                <a
+                        href="{% url 'workshop' %}">Workshop
+                </a>
+            </button>
+        </div>
     </div>
     <!-- Gallery Area End -->
 {% endblock %}
