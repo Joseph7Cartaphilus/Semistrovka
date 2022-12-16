@@ -68,6 +68,14 @@
                         <div class="col-lg-12" style="margin-top: 0; margin-left: 95px">
                             <button class="btn btn-info btn-block" type="submit" value="Return to workshop">
                                 <a
+                                        href="{% url 'edit_pin' pin.slug %}">Edit pin
+                                </a>
+                            </button>
+                        </div>
+                        <br style="margin-top: 30px">
+                        <div class="col-lg-12" style="margin-top: 0; margin-left: 95px">
+                            <button class="btn btn-info btn-block" type="submit" value="Return to workshop">
+                                <a
                                         href="{% url 'workshop' %}">Return to workshop
                                 </a>
                             </button>
