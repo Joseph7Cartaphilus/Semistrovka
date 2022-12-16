@@ -4,6 +4,11 @@ from .models import Pin
 
 
 class EditForm(forms.ModelForm):
+    title = forms.CharField(widget=forms.TextInput())
+    text = forms.CharField(widget=forms.TextInput())
+    img = forms.ImageField(widget=forms.FileInput(), required=False)
+    category = forms.HiddenInput()
+
     def save(self, *args, **kwargs):
         self.instance.user = self.initial['user']
         return super(EditForm, self).save(*args, **kwargs)
@@ -11,7 +16,3 @@ class EditForm(forms.ModelForm):
     class Meta:
         model = Pin
         fields = ('title', 'text', 'category', 'img')
-
-    def clean(self):
-        self.cleaned_data['title'] = self.cleaned_data['title'].upper()
-        return self.cleaned_data
