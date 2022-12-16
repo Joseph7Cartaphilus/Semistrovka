@@ -60,11 +60,11 @@
                                         <li><a href="{% url 'workshop' %}">- Workshop</a></li>
                                         <li><a href="{% url 'gallery' %}">- Gallery</a></li>
                                         {% if user.is_authenticated %}
-                                        <li><a href="{% url 'profile' %}">- Profile</a></li>
+                                            <li><a href="{% url 'profile' %}">- Profile</a></li>
                                         {% else %}
+                                            <li><a href="{% url 'login' %}">- Login</a></li>
+                                            <li><a href="{% url 'register' %}">- Register</a></li>
                                         {% endif %}
-                                        <li><a href="{% url 'login' %}">- Login</a></li>
-                                        <li><a href="{% url 'register' %}">- Register</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="{% url 'gallery' %}">Gallery</a></li>
@@ -187,9 +187,12 @@
                     </div>
                     <!-- Social Info -->
                     <div class="social-info">
-                        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBdQ1LldFXLWJRIEizMVbSeSeh6r53QTP8eLpuTJWF7D2MWMYWXc40gX1RjfADLEAQfDk&usqp=CAU"><i class="ti-facebook" aria-hidden="true"></i></a>
-                        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBdQ1LldFXLWJRIEizMVbSeSeh6r53QTP8eLpuTJWF7D2MWMYWXc40gX1RjfADLEAQfDk&usqp=CAU"><i class="ti-twitter-alt" aria-hidden="true"></i></a>
-                        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBdQ1LldFXLWJRIEizMVbSeSeh6r53QTP8eLpuTJWF7D2MWMYWXc40gX1RjfADLEAQfDk&usqp=CAU"><i class="ti-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBdQ1LldFXLWJRIEizMVbSeSeh6r53QTP8eLpuTJWF7D2MWMYWXc40gX1RjfADLEAQfDk&usqp=CAU"><i
+                                class="ti-facebook" aria-hidden="true"></i></a>
+                        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBdQ1LldFXLWJRIEizMVbSeSeh6r53QTP8eLpuTJWF7D2MWMYWXc40gX1RjfADLEAQfDk&usqp=CAU"><i
+                                class="ti-twitter-alt" aria-hidden="true"></i></a>
+                        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBdQ1LldFXLWJRIEizMVbSeSeh6r53QTP8eLpuTJWF7D2MWMYWXc40gX1RjfADLEAQfDk&usqp=CAU"><i
+                                class="ti-linkedin" aria-hidden="true"></i></a>
                         <a href="https://ru.pinterest.com/"><i class="ti-pinterest" aria-hidden="true"></i></a>
                     </div>
                 </div>
