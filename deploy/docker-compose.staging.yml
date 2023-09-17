@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  nginx:
+    image: project-nginx:latest
+    build:
+      context: ..
+      dockerfile: deploy/nginx/Dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    restart: always
+
+  app:
+    image: project:latest
+    build:
+      dockerfile: deploy/app/Dockerfile
+      context: ..
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_DB: boosty_analogue
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 230999
+      DB_HOST: postgres
+      DEBUG: "true"
+    restart: always
+
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: boosty_analogue
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 230999
+    volumes:
+      - "db:/var/lib/postgresql/data"
+
+volumes:
+  db:
+  media:

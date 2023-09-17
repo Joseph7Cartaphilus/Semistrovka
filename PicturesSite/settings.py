@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'PicturesSite.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "MiracleArt",
-        "USER": "postgres",
-        "PASSWORD": "17456",
-        "HOST": "localhost",
-        "PORT": 5432
+        "NAME": os.environ.get("POSTGRES_DB", "boosty_analogue"),
+        "USER": os.environ.get("POSTGRES_USER", "postgres1"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD", "23099999"),
+        "HOST": os.environ.get("DB_HOST", "localhost"),
+        "PORT": int(os.environ.get("DB_PORT", 5432)),
     }
 }
 
@@ -120,11 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'MiracleArt/static'),
-    os.path.join(BASE_DIR, 'users/static'),
-)
+STATIC_ROOT = "static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
